@@ -1,7 +1,11 @@
-Run cli-pokemon-battle.py in this directory.
-
 Ensure Python version is at least 3.7
     __future__ library for only available at 3.7+
+
+Run cli_pokemon_battle.py in this directory.
+
+Sample usage in terminal:
+1. Open Terminal in cli-pokemon-battle folder
+2. Enter "python cli_pokemon_battle.py"
 
 On Pokedex roster:
     Only pokemon who:
@@ -21,8 +25,6 @@ https://www.dragonflycave.com/mechanics/battle
 
 Resurces for the pokedex are:
 https://pokemondb.net/pokedex/national#gen-2
-
-
 
 Contributors:
 Miguel Antonio Chavez - Battle Mechanics, Pokemon Class, Gameplay Loop
