@@ -1,0 +1,145 @@
+pokedex_data = {
+    "Croconaw": {
+        "name": "Croconaw",
+        "stats": {"hp": 65, "n_atk": 80, "n_def": 80, "sp_atk": 59, "sp_def": 63, "spd": 58},
+        "types": ["Water"],
+        "moves": [
+            {"name": "Scratch", "base": 40, "mov_type": "Normal", "accuracy": 1.0, "category": "n"},
+            {"name": "Rage", "base": 20, "mov_type": "Normal", "accuracy": 1.0, "category": "n"},
+            {"name": "Water Gun", "base": 40, "mov_type": "Water", "accuracy": 1.0, "category": "sp"},
+            {"name": "Bite", "base": 60, "mov_type": "Dark", "accuracy": 1.0, "category": "sp"},
+        ],
+    },
+    "Quagsire": {
+        "name": "Quagsire",
+        "stats": {"hp": 95, "n_atk": 85, "n_def": 85, "sp_atk": 65, "sp_def": 65, "spd": 35},
+        "types": ["Water", "Ground"],
+        "moves": [
+            {"name": "Tackle", "base": 35, "mov_type": "Normal", "accuracy": 0.95, "category": "n"},
+            {"name": "Mud-Slap", "base": 20, "mov_type": "Ground", "accuracy": 1.0, "category": "n"},
+            {"name": "Water Gun", "base": 40, "mov_type": "Water", "accuracy": 1.0, "category": "sp"},
+            {"name": "Slam", "base": 80, "mov_type": "Normal", "accuracy": 0.75, "category": "n"},
+        ],
+    },
+    "Scizor": {
+        "name": "Scizor",
+        "stats": {"hp": 70, "n_atk": 130, "n_def": 100, "sp_atk": 55, "sp_def": 80, "spd": 65},
+        "types": ["Bug", "Steel"],
+        "moves": [
+            {"name": "Quick Attack", "base": 40, "mov_type": "Normal", "accuracy": 1.0, "category": "n", "priority": 1},
+            {"name": "Metal Claw", "base": 50, "mov_type": "Steel", "accuracy": 0.95, "category": "n"},
+            {"name": "Pursuit", "base": 40, "mov_type": "Dark", "accuracy": 1.0, "category": "sp"},
+            {"name": "False Swipe", "base": 40, "mov_type": "Normal", "accuracy": 1.0, "category": "n"},
+        ],
+    },
+    "Granbull": {
+        "name": "Granbull",
+        "stats": {"hp": 90, "n_atk": 120, "n_def": 75, "sp_atk": 60, "sp_def": 60, "spd": 45},
+        "types": ["Normal"],
+        "moves": [
+            {"name": "Tackle", "base": 35, "mov_type": "Normal", "accuracy": 0.95, "category": "n"},
+            {"name": "Headbutt", "base": 70, "mov_type": "Normal", "accuracy": 1.0, "category": "n"},
+            {"name": "Bite", "base": 60, "mov_type": "Dark", "accuracy": 1.0, "category": "sp"},
+            {"name": "Lick", "base": 20, "mov_type": "Ghost", "accuracy": 1.0, "category": "n"},
+        ],
+    },
+    "Ursaring": {
+        "name": "Ursaring",
+        "stats": {"hp": 90, "n_atk": 130, "n_def": 75, "sp_atk": 75, "sp_def": 75, "spd": 55},
+        "types": ["Normal"],
+        "moves": [
+            {"name": "Scratch", "base": 40, "mov_type": "Normal", "accuracy": 1.0, "category": "n"},
+            {"name": "Lick", "base": 20, "mov_type": "Ghost", "accuracy": 1.0, "category": "n"},
+            {"name": "Fury Swipes", "base": 18, "mov_type": "Normal", "accuracy": 0.8, "category": "n"},
+            {"name": "Faint Attack", "base": 60, "mov_type": "Dark", "accuracy": 1.0, "category": "sp"},
+        ],
+    },
+    "Octillery": {
+        "name": "Octillery",
+        "stats": {"hp": 75, "n_atk": 105, "n_def": 75, "sp_atk": 105, "sp_def": 75, "spd": 45},
+        "types": ["Water"],
+        "moves": [
+            {"name": "Constrict", "base": 10, "mov_type": "Normal", "accuracy": 1.0, "category": "n"},
+            {"name": "Water Gun", "base": 40, "mov_type": "Water", "accuracy": 1.0, "category": "sp"},
+            {"name": "Psybeam", "base": 65, "mov_type": "Psychic", "accuracy": 1.0, "category": "sp"},
+            {"name": "Aurora Beam", "base": 65, "mov_type": "Ice", "accuracy": 1.0, "category": "sp"},
+        ],
+    },
+    "Houndoom": {
+        "name": "Houndoom",
+        "stats": {"hp": 75, "n_atk": 90, "n_def": 50, "sp_atk": 110, "sp_def": 80, "spd": 95},
+        "types": ["Dark", "Fire"],
+        "moves": [
+            {"name": "Ember", "base": 40, "mov_type": "Fire", "accuracy": 1.0, "category": "sp"},
+            {"name": "Smog", "base": 20, "mov_type": "Poison", "accuracy": 0.7, "category": "n"},
+            {"name": "Bite", "base": 60, "mov_type": "Dark", "accuracy": 1.0, "category": "sp"},
+            {"name": "Pursuit", "base": 40, "mov_type": "Dark", "accuracy": 1.0, "category": "sp"},
+        ],
+    },
+    "Umbreon": {
+        "name": "Umbreon",
+        "stats": {"hp": 95, "n_atk": 65, "n_def": 110, "sp_atk": 60, "sp_def": 130, "spd": 65},
+        "types": ["Dark"],
+        "moves": [
+            {"name": "Tackle", "base": 35, "mov_type": "Normal", "accuracy": 0.95, "category": "n"},
+            {"name": "Pursuit", "base": 40, "mov_type": "Dark", "accuracy": 1.0, "category": "sp"},
+            {"name": "Quick Attack", "base": 40, "mov_type": "Normal", "accuracy": 1.0, "category": "n", "priority": 1},
+            {"name": "Bite", "base": 60, "mov_type": "Dark", "accuracy": 1.0, "category": "sp"},
+        ],
+    },
+    "Donphan": {
+        "name": "Donphan",
+        "stats": {"hp": 90, "n_atk": 120, "n_def": 120, "sp_atk": 60, "sp_def": 60, "spd": 50},
+        "types": ["Ground"],
+        "moves": [
+            {"name": "Tackle", "base": 35, "mov_type": "Normal", "accuracy": 0.95, "category": "n"},
+            {"name": "Mud-Slap", "base": 20, "mov_type": "Ground", "accuracy": 1.0, "category": "n"},
+            {"name": "Rollout", "base": 30, "mov_type": "Rock", "accuracy": 0.9, "category": "n"},
+            {"name": "Take Down", "base": 90, "mov_type": "Normal", "accuracy": 0.85, "category": "n"},
+        ],
+    },
+    "Steelix": {
+        "name": "Steelix",
+        "stats": {"hp": 75, "n_atk": 85, "n_def": 200, "sp_atk": 55, "sp_def": 65, "spd": 30},
+        "types": ["Steel", "Ground"],
+        "moves": [
+            {"name": "Tackle", "base": 35, "mov_type": "Normal", "accuracy": 0.95, "category": "n"},
+            {"name": "Bind", "base": 15, "mov_type": "Normal", "accuracy": 0.75, "category": "n"},
+            {"name": "Rock Throw", "base": 50, "mov_type": "Rock", "accuracy": 0.9, "category": "n"},
+            {"name": "Rage", "base": 20, "mov_type": "Normal", "accuracy": 1.0, "category": "n"},
+        ],
+    },
+    "Hitmontop": {
+        "name": "Hitmontop",
+        "stats": {"hp": 50, "n_atk": 95, "n_def": 95, "sp_atk": 35, "sp_def": 110, "spd": 70},
+        "types": ["Fighting"],
+        "moves": [
+            {"name": "Triple Kick", "base": 10, "mov_type": "Fighting", "accuracy": 0.9, "category": "n"},
+            {"name": "Rolling Kick", "base": 60, "mov_type": "Fighting", "accuracy": 0.85, "category": "n"},
+            {"name": "Rapid Spin", "base": 20, "mov_type": "Normal", "accuracy": 1.0, "category": "n"},
+            {"name": "Quick Attack", "base": 40, "mov_type": "Normal", "accuracy": 1.0, "category": "n", "priority": 1},
+        ],
+    },
+    "Furret": {
+        "name": "Furret",
+        "stats": {"hp": 85, "n_atk": 76, "n_def": 64, "sp_atk": 45, "sp_def": 55, "spd": 90},
+        "types": ["Normal"],
+        "moves": [
+            {"name": "Tackle", "base": 35, "mov_type": "Normal", "accuracy": 0.95, "category": "n"},
+            {"name": "Quick Attack", "base": 40, "mov_type": "Normal", "accuracy": 1.0, "category": "n", "priority": 1},
+            {"name": "Fury Swipes", "base": 18, "mov_type": "Normal", "accuracy": 0.8, "category": "n"},
+            {"name": "Slam", "base": 80, "mov_type": "Normal", "accuracy": 0.75, "category": "n"},
+        ],
+    },
+    "Azumarill": {
+        "name": "Azumarill",
+        "stats": {"hp": 100, "n_atk": 50, "n_def": 80, "sp_atk": 50, "sp_def": 80, "spd": 50},
+        "types": ["Water"],
+        "moves": [
+            {"name": "Tackle", "base": 35, "mov_type": "Normal", "accuracy": 0.95, "category": "n"},
+            {"name": "Water Gun", "base": 40, "mov_type": "Water", "accuracy": 1.0, "category": "sp"},
+            {"name": "Rollout", "base": 30, "mov_type": "Rock", "accuracy": 0.9, "category": "n"},
+            {"name": "Slam", "base": 80, "mov_type": "Normal", "accuracy": 0.75, "category": "n"},
+        ],
+    },
+}

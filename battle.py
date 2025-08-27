@@ -11,14 +11,14 @@ class Battle:
     p1: Pokemon
     p2: Pokemon
     rng: rand.Random = field(default_factory=rand.Random, repr=False)
-    turn = 1
+    turn: int = field(default=1, init=False)
     # weather: Optional[str] = None
 
     def calculate_damage(self, attacker: Pokemon, defender: Pokemon, move: Move) -> int:
         A, D = attacker.n_or_sp(move, defender)
 
         # formula taken from: https://web.archive.org/web/20140712063943/http://www.upokecenter.com/content/pokemon-gold-version-silver-version-and-crystal-version-timing-notes
-        base = (((2 * 50) / 5 + 2) * A * move.base / max(1, D)) / 50 # 50 in (2 * 50) is set as the default level for all pokemon, for simplicity
+        base = (((2 * 30) / 5 + 2) * A * move.base / max(1, D)) / 50 # 30 in (2 * 30) is the default level for all pokemon in this project
         
         # modifiers 
         stab = attacker.is_stab(move) # Same-type attack bonus

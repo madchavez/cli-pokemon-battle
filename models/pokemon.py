@@ -6,6 +6,7 @@ from models.move import Move
 
 @dataclass
 class Pokemon:
+    """Simple Data Model for Pokemon"""
     name: str
     hp: int
     n_atk: int
@@ -59,7 +60,7 @@ class Pokemon:
         moves = [
             Move(
                 name=m["name"],
-                power=int(m.get("power", 0)),
+                base=int(m.get("base", 0)),
                 mov_type=m.get("mov_type", "Normal"),
                 accuracy=float(m.get("accuracy", 1.0)),
                 category=m.get("category", "n"),
