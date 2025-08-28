@@ -15,6 +15,12 @@ class Battle:
     # weather: Optional[str] = None
 
     def calculate_damage(self, attacker: Pokemon, defender: Pokemon, move: Move) -> int:
+        """
+        input: attacker and defender Pokemon Object, and attacker Move Object
+        Determine if move is normal or special
+        Calculate damage
+        return int(damage) with minimum value 1, crit boolean, type multiplier
+        """
         A, D = attacker.n_or_sp(move, defender)
 
         # formula taken from: https://web.archive.org/web/20140712063943/http://www.upokecenter.com/content/pokemon-gold-version-silver-version-and-crystal-version-timing-notes
@@ -31,19 +37,41 @@ class Battle:
         return max(1, dmg), crit_bool, type_mult
     
     def apply_damage(self, attacker: Pokemon, defender: Pokemon, move: Move) -> tuple[int, bool, float]:
+        """
+        input: attacker and defender Pokemon objects, attacker move object
+        Calculate damage
+        Apply to defender hp
+        return int(damage) with minimum value 1, crit boolean, type multiplier
+        """
         dmg, crit_bool, type_mult = self.calculate_damage(attacker, defender, move)
         defender.hp = max(0, defender.hp - dmg)
         return dmg, crit_bool, type_mult
     
     def choose_action(self, pokemon: Pokemon, move_index):
+        """
+        input: Pokemon Object, and index (integer)
+        Assign move, calculate initiative values
+        return pokemon, move, move priority, pokemon speed tuple
+        """
         move = pokemon.moves[move_index]
         prio, speed = pokemon.initiative(move)
         return (pokemon, move, prio, speed)
     
     def initiative_order(self, actions):
+        """
+        input: actions (list of choose_action tuples)
+        return sorted according to move priority, pokemon speed, and float rng as tiebreaker
+        """
         return sorted(actions, key=lambda x: (-x[2], -x[3], self.rng.random()))
 
     def take_turn(self, p1_move_index: int, p2_move_index: int) -> dict:
+        """
+        input: p1 and p2 move
+        checks initiative 
+        checks if either player has fainted, breaks loop
+        applies damage in order of initiative (move priority, pokemon speed, or rng tiebreaker)
+        returns summary
+        """
         actions_log = []
 
         try:
