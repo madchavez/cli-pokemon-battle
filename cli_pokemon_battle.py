@@ -100,9 +100,9 @@ def choose_npc_move(attacker: Pokemon, defender: Pokemon, difficulty: int) -> in
     if difficulty == 3:
         return random.choice(best_moves)
     
-    # If medium difficulty, choose among best moves 80% of the time
+    # If medium difficulty, choose among best moves 50% of the time
     if difficulty == 2:
-        if random.random() < 0.8:
+        if random.random() < 0.5:
             return random.choice(best_moves)
         else:
             return random.randint(0, len(attacker.moves) - 1)
