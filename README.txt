@@ -12,7 +12,7 @@ On Pokedex roster:
         Are gen 2 and have 4 moves by level up at level 30 were initially selected.
         Status effects are out of scope.
         Only pokemon who have 4 damage-only moves learnable by level 30 are in the pokedex.
-	If any Status type moves are present, only their base damage is considered.
+	    If any Status type moves are present, only their base damage is considered.
         Your favorite pokemon are unlikely to be here.
 
 gameplay_test.py is a unit test for debugging. 
