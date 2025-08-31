@@ -114,6 +114,9 @@ class Pokemon:
                 category=m.get("category", "n"),
                 priority=int(m.get("priority", 0)),
                 crit_chance=float(m.get("crit_chance", 1/24)),
+                move_eff=m.get("move_eff", None),
+                attr_ch=m.get("attr_ch", None),
+                attr_delta=m.get("attr_delta", 0),
             )
             for m in data.get("moves", [])[:4]
         ]

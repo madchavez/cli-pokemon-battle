@@ -260,23 +260,7 @@ def play_battle():
         print(f"\n{'='*30} TURN {result['turn']} {'='*30}")
         
         for action in result['log']:
-            if action['result'] == 'miss':
-                print_battle_message(action['actor'], action['target'], action['move'])
-                print_miss_message()
-                
-            elif action['result'] == 'hit':
-                print_battle_message(action['actor'], action['target'], action['move'])
-                
-                if action['critical']:
-                    print_critical_hit_message()
-                
-                animate_damage(action['damage'])
-                print_effectiveness_message(action['effectiveness'])
-                
-            elif action['result'] == 'target_fainted':
-                print_faint_message(battle.p2 if action['target'] == battle.p2.name else battle.p1)
-
-            elif action['result'] == 'stat_change':
+            if action['result'] == 'stat_change':
                 # Map raw keys to human-readable names
                 stat_names = {
                     "n_atk": "Attack",
@@ -296,7 +280,22 @@ def play_battle():
 
                 print(f"{action['target']}'s {stat} {phrase}")
 
-        
+            if action['result'] == 'miss':
+                print_battle_message(action['actor'], action['target'], action['move'])
+                print_miss_message()
+
+            elif action['result'] == 'hit':
+                print_battle_message(action['actor'], action['target'], action['move'])
+                
+                if action['critical']:
+                    print_critical_hit_message()
+                
+                animate_damage(action['damage'])
+                print_effectiveness_message(action['effectiveness'])
+                
+            elif action['result'] == 'target_fainted':
+                print_faint_message(battle.p2 if action['target'] == battle.p2.name else battle.p1)
+
         print(f"{'='*70}")
         # time.sleep(1)
     

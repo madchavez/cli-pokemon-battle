@@ -104,17 +104,19 @@ class Battle:
                 })
                 continue
 
-            # for debug
-            # print(f"move = {move}")
-            dmg, crit_flag, type_mult = self.apply_damage(attacker, defender, move)
-
-            # drain moves heal 50% of damage dealt.
-            if move.move_eff == "drain":  
-                attacker.hp += min(attacker.max_hp, dmg//2)
-
+            # classic gen 2, heal is 50% max hp
             if move.move_eff == "heal":
-                defender.hp += dmg
-            
+                heal_amt = attacker.max_hp // 2
+                old_hp = attacker.hp
+                attacker.hp = min(attacker.max_hp, attacker.hp + heal_amt)
+                actions_log.append({
+                    "actor": attacker.name, "target": attacker.name,
+                    "move": move.name, "result": "heal",
+                    "heal": attacker.hp - old_hp, "target_hp_after": attacker.hp
+                })
+                continue
+
+
             # stat change moves change non-hp pokemon attributes
             if move.attr_ch is not None:
                 target = attacker if move.attr_delta >= 0 else defender  # attribute change recipient
@@ -129,6 +131,15 @@ class Battle:
                     "attr": move.attr_ch, "delta": move.attr_delta,
                     "new_stage": new_stage
                 })
+                continue
+
+            # for debug
+            # print(f"move = {move}")
+            dmg, crit_flag, type_mult = self.apply_damage(attacker, defender, move)
+
+            # drain moves heal 50% of damage dealt.
+            if move.move_eff == "drain":  
+                attacker.hp += min(attacker.max_hp, dmg//2)
             
             actions_log.append({
                 "actor": attacker.name, "target": defender.name,
