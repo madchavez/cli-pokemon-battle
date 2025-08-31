@@ -11,8 +11,9 @@ On Pokedex roster:
     Only pokemon who:
         Are gen 2 and have 4 moves by level up at level 30 were initially selected.
         Status effects are out of scope.
-        Only pokemon who have 4 damage-only moves learnable by level 30 are in the pokedex.
-	    If any Status type moves are present, only their base damage is considered.
+        Only pokemon who have at least 4 moves learnable by level 30 are in the pokedex.
+	Only Pokémon with the following move types were considered:
+		Damage (e.g. Tackle), Attribute Change (e.g. Tail Whip), Drain (e.g. Absorb), and Heal (e.g. 			Moonlight) moves.
         Your favorite pokemon are unlikely to be here.
 
 gameplay_test.py is a unit test for debugging. 
@@ -27,7 +28,7 @@ Resurces for the pokedex are:
 https://pokemondb.net/pokedex/national#gen-2
 
 Contributors:
-Miguel Antonio Chavez - Battle Mechanics, Pokemon Class, Gameplay Loop
+Miguel Antonio Chavez - Battle Mechanics, Pokemon Class, Gameplay Loop, Revisions
 Claudine Justine Ng - Pokedex, Type Charts, Battle Mechanics
 Miguel Augusto Libre - Pokedex, Type Charts, Data Models 
 Karl Cacao - Gameplay Loop 
