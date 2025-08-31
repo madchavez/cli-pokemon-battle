@@ -117,7 +117,7 @@ def print_battle_intro(p1: Pokemon, p2: Pokemon):
     print(f"Wild {p2.name} appeared!")
     print(f"Go! {p1.name}!")
     print(f"{'='*50}")
-    time.sleep(1)
+    # time.sleep(1)
 
 def print_hp_bars(p1: Pokemon, p2: Pokemon):
     """Print HP bars close to Pokémon style"""
@@ -169,32 +169,32 @@ def print_effectiveness_message(effectiveness: float):
         print("It's not very effective...")
     elif effectiveness > 1:
         print("It's super effective!")
-    time.sleep(0.5)
+    # time.sleep(0.5)
 
 def print_critical_hit_message():
     """Print critical hit message"""
     print("A critical hit!")
-    time.sleep(0.3)
+    # time.sleep(0.3)
 
 def print_faint_message(pokemon: Pokemon):
     """Print faint message"""
     print(f"{pokemon.name} fainted!")
-    time.sleep(1)
+    # time.sleep(1)
 
 def print_battle_message(actor: str, target: str, move: str):
     """Print basic battle message"""
     print(f"{actor} used {move}!")
-    time.sleep(0.3)
+    # time.sleep(0.3)
 
 def print_miss_message():
     """Print miss message"""
     print("The attack missed!")
-    time.sleep(0.3)
+    # time.sleep(0.3)
 
 def animate_damage(damage: int):
     """Simple damage animation"""
     print(f"It did {damage} damage!")
-    time.sleep(0.5)
+    # time.sleep(0.5)
 
 # ===== MAIN GAMEPLAY LOOP =====
 def play_battle():
@@ -240,7 +240,7 @@ def play_battle():
     print_battle_intro(player_pokemon, npc_pokemon)
     
     # Show type advantage info
-    time.sleep(2)
+    # time.sleep(2)
     
     # Gameplay loop
     turn_count = 1
@@ -277,7 +277,7 @@ def play_battle():
                 print_faint_message(battle.p2 if action['target'] == battle.p2.name else battle.p1)
         
         print(f"{'='*70}")
-        time.sleep(1)
+        # time.sleep(1)
     
     # Battle conclusion
     print_hp_bars(battle.p1, battle.p2)
