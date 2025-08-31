@@ -13,3 +13,6 @@ class Move:
     category: str
     crit_chance: float = 1/24
     priority: int = 0
+    move_eff: str = None  #  Move Effect: heal, drain or None
+    attr_ch: str = None  # Attribute changed: atk_s, def_s, sp_atk_s, sp_def_s, spd_s
+    attr_delta: int = 0  # Attribute delta

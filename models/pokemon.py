@@ -18,9 +18,57 @@ class Pokemon:
     moves: List[Move]
     max_hp: int = field(init=False)
     rng: rand.Random = field(default_factory=rand.Random, repr=False)
+    atk_s = def_s = sp_atk_s = sp_def_s = spd_s = 0
+
+    STAGE_ATTR_MAP = {
+        "n_atk": "atk_s",
+        "n_def": "def_s",
+        "sp_atk": "sp_atk_s",
+        "sp_def": "sp_def_s",
+        "spd": "spd_s",
+    }
 
     def __post_init__(self):
         self.max_hp = self.hp
+
+    def stage_mult(self, s: int) -> float:
+        return (2+s)/2 if s >= 0 else 2/(2-s)
+    
+    # effective stat functions separated in case status effects are added.
+    def eff_atk(self) -> int:
+        """Return effective Attack after stage multipliers."""
+        base = self.n_atk
+        mult = self.stage_mult(self.atk_s)
+        val = int(max(1, base * mult))
+        return val
+
+    def eff_def(self) -> int:
+        """Return effective Defense after stage multipliers."""
+        base = self.n_def
+        mult = self.stage_mult(self.def_s)
+        val = int(max(1, base * mult))
+        return val
+
+    def eff_sp_atk(self) -> int:
+        """Return effective Special Attack after stage multipliers."""
+        base = self.sp_atk
+        mult = self.stage_mult(self.sp_atk_s)
+        val = int(max(1, base * mult))
+        return val
+
+    def eff_sp_def(self) -> int:
+        """Return effective Special Defense after stage multipliers."""
+        base = self.sp_def
+        mult = self.stage_mult(self.sp_def_s)
+        val = int(max(1, base * mult))
+        return val
+
+    def eff_spd(self) -> int:
+        """Return effective Speed after stage multipliers."""
+        base = self.spd
+        mult = self.stage_mult(self.spd_s)
+        val = int(max(1, base * mult))
+        return val
 
     def is_fainted(self) -> bool:
         """Check if Pokemon has fainted"""
@@ -32,7 +80,7 @@ class Pokemon:
 
     def initiative(self, move: Move):
         """Return tuple for sorting turn order: (priority, speed)."""
-        return move.priority, self.spd
+        return move.priority, self.eff_spd()
 
     def is_stab(self, move: Move) -> float:
         """Same-Type Attack Bonus (STAB)."""
@@ -44,14 +92,14 @@ class Pokemon:
         return is_crit, (1.5 if is_crit else 1.0)
 
     def calc_r(self) -> float:
-        """Damage variance (0.85–1.00)."""
+        """Damage variance (0.85-1.00)."""
         return self.rng.uniform(0.85, 1.0)
 
     def n_or_sp(self, move: Move, defender: Pokemon):
         """Return (attacker_stat, defender_stat) depending on move category."""
         if move.category.lower() == "sp":
-            return self.sp_atk, defender.sp_def
-        return self.n_atk, defender.n_def
+            return self.eff_sp_atk(), defender.eff_sp_def()
+        return self.eff_atk(), defender.eff_def()
     
     @classmethod
     def from_dict(cls, data: Dict) -> Pokemon:

@@ -106,9 +106,30 @@ class Battle:
 
             # for debug
             # print(f"move = {move}")
-
             dmg, crit_flag, type_mult = self.apply_damage(attacker, defender, move)
-        
+
+            # drain moves heal 50% of damage dealt.
+            if move.move_eff == "drain":  
+                attacker.hp += min(attacker.max_hp, dmg//2)
+
+            if move.move_eff == "heal":
+                defender.hp += dmg
+            
+            # stat change moves change non-hp pokemon attributes
+            if move.attr_ch is not None:
+                target = attacker if move.attr_delta >= 0 else defender  # attribute change recipient
+                stage_attr = Pokemon.STAGE_ATTR_MAP.get(move.attr_ch, move.attr_ch)
+                current_stage = getattr(target, stage_attr)  # current attribute stage
+                new_stage = current_stage + move.attr_delta  # with change applied
+                new_stage = max(-6, min(6, new_stage))  # clamp to -6, 6
+
+                actions_log.append({
+                    "actor": attacker.name, "target": target.name,
+                    "move": move.name, "result": "stat_change",
+                    "attr": move.attr_ch, "delta": move.attr_delta,
+                    "new_stage": new_stage
+                })
+            
             actions_log.append({
                 "actor": attacker.name, "target": defender.name,
                 "move": move.name, "result": "hit",

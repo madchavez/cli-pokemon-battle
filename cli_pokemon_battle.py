@@ -275,6 +275,27 @@ def play_battle():
                 
             elif action['result'] == 'target_fainted':
                 print_faint_message(battle.p2 if action['target'] == battle.p2.name else battle.p1)
+
+            elif action['result'] == 'stat_change':
+                # Map raw keys to human-readable names
+                stat_names = {
+                    "n_atk": "Attack",
+                    "n_def": "Defense",
+                    "sp_atk": "Sp. Atk",
+                    "sp_def": "Sp. Def",
+                    "spd": "Speed",
+                }
+                stat = stat_names.get(action['attr'], action['attr'])
+
+                d = action['delta']
+                # Choose phrase based on magnitude
+                if d > 0:
+                    phrase = "rose!" if d == 1 else ("sharply rose!" if d == 2 else "rose drastically!")
+                else:
+                    phrase = "fell!" if d == -1 else ("harshly fell!" if d == -2 else "severely fell!")
+
+                print(f"{action['target']}'s {stat} {phrase}")
+
         
         print(f"{'='*70}")
         # time.sleep(1)
