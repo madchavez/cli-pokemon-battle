@@ -13,7 +13,7 @@ On Pokedex roster:
         Status effects are out of scope.
         Only pokemon who have at least 4 moves learnable by level 30 are in the pokedex.
 	Only Pokémon with the following move types were considered:
-		Damage (e.g. Tackle), Attribute Change (e.g. Tail Whip), Drain (e.g. Absorb), and Heal (e.g. 			Moonlight) moves.
+		Damage (e.g. Tackle), Attribute Change (e.g. Tail Whip), Drain (e.g. Absorb), and Heal (e.g. Moonlight) moves.
         Your favorite pokemon are unlikely to be here.
 
 gameplay_test.py is a unit test for debugging. 
@@ -26,10 +26,3 @@ https://www.dragonflycave.com/mechanics/battle
 
 Resurces for the pokedex are:
 https://pokemondb.net/pokedex/national#gen-2
-
-Contributors:
-Miguel Antonio Chavez - Battle Mechanics, Pokemon Class, Gameplay Loop, Revisions
-Claudine Justine Ng - Pokedex, Type Charts, Battle Mechanics
-Miguel Augusto Libre - Pokedex, Type Charts, Data Models 
-Karl Cacao - Gameplay Loop 
-Jan Moreno - Gameplay Loop
